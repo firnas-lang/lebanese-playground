@@ -4620,6 +4620,9 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
+"firnas_wasm@file:../firnas_wasm/pkg":
+  version "0.1.0"
+
 flat-cache@^3.0.4:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-3.1.1.tgz#a02a15fdec25a8f844ff7cc658f03dd99eb4609b"

@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react';
-// import init, { compile } from 'wasm_bindings';
+import init, { compile } from 'firnas_wasm';
+
 import { CodeEditorWindow } from './CodeEditorWindow';
 import { OutputWindow } from './OutputWindow';
 
 export const App = () => {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [code, setCode] = useState("");
   const [output, setOutput] = useState("");
 
   useEffect(() => {
-    // init().then(() => {
-    //   setLoading(false);
-    // });
+    init().then(() => {
+      setLoading(false);
+    });
   }, []);
 
   const handleEditorChange = (value: string) => {
@@ -43,9 +44,9 @@ export const App = () => {
               className="mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0"
               onClick={() => {
                 setOutput("");
-                // compile(code, (result) => {
-                //   setOutput(output + result);
-                // });
+                compile(code, (result: string) => {
+                  setOutput(output + result);
+                });
               }}
             >
               جمّع ونفّذ
