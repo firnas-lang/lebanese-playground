@@ -1,5 +1,5 @@
 wasm:
 	@cd firnas_wasm && wasm-pack build --target web
 
-start:
+frontend:
 	@cd frontend && yarn start

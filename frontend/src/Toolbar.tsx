@@ -1,28 +1,20 @@
+import { FiPlay, FiShare2 } from 'react-icons/fi'
+
 interface ToolbarProps {
     onRun: Function,
     onShare: Function,
 }
 
-export const Toolbar = ({onRun, onShare}: ToolbarProps) => {
+export const Toolbar = ({ onRun, onShare }: ToolbarProps) => {
     return (
-        <div className="flex flex-row">
+        <div className="flex flex-row items-center">
             <div className="px-4">
-                <button
-                    className="mt-4 border-2 border-black rounded-md px-4 py-2 bg-white flex-shrink-0"
-                    onClick={() => {
-                        onRun()
-                    }}
-                    >
-                    شغّل ▶️
+                <button onClick={() => { onRun() }}>
+                    <FiPlay />
                 </button>
-                </div>
-            <button
-                className="mt-4 border-2 border-black rounded-md px-4 py-2 bg-white flex-shrink-0"
-                onClick={() => {
-                    onShare()
-                }}
-            >
-                شارك
+            </div>
+            <button onClick={() => { onShare() }}>
+                <FiShare2 />
             </button>
         </div>
     );
