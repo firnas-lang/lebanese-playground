@@ -1,12 +1,12 @@
 import { useState } from "react";
 import CodeMirror from '@uiw/react-codemirror';
 
-interface CodeEditorWindowProps {
+interface CodeEditorProps {
     onChange: Function,
     code: string
 }
 
-export const CodeEditorWindow = ({ onChange, code }: CodeEditorWindowProps) => {
+export const CodeEditor = ({ onChange, code }: CodeEditorProps) => {
     const [value, setValue] = useState(code || "");
 
     const handleEditorChange = (value: string, _viewUpdate: any) => {
