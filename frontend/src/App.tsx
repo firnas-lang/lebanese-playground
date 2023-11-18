@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import init, { compile } from 'firnas_wasm';
 
 import { CodeEditor } from './components/CodeEditorWindow';
 import { OutputWindow } from './components/OutputWindow';
 import { Toolbar } from './components/Toolbar';
 import { Title } from './components/Title';
 import { Divider } from './components/Divider';
+import { FirnasAdapter } from './services/firnasAdapter';
 
 export const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -13,7 +13,7 @@ export const App = () => {
   const [output, setOutput] = useState("");
 
   useEffect(() => {
-    init().then(() => {
+    FirnasAdapter.initialize().then(() => {
       setLoading(false);
     });
   }, []);
@@ -22,10 +22,9 @@ export const App = () => {
     setCode(value);
   };
 
-  const handleRun = () => {
-    compile(code, (result: any) => {
-      setOutput(result);
-    });
+  const handleRun = async () => {
+    let result = await FirnasAdapter.execute(code);
+    setOutput(result);
   }
 
   if (isLoading) {

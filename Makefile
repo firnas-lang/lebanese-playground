@@ -1,5 +1,5 @@
 wasm:
 	@cd firnas_wasm && wasm-pack build --target web
 
-frontend:
+playground:
 	@cd frontend && yarn start
