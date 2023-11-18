@@ -17,7 +17,10 @@ export class FirnasAdapter {
                     FirnasAdapter._isInitialized = true;
                     resolve(true);
                 })
-                .catch((reason) => { reject(reason); });
+                .catch((reason) => {
+                    FirnasAdapter._isInitialized = false;
+                    reject(reason);
+                });
         });
 
         return promise;
