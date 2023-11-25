@@ -28,7 +28,7 @@ export class FirnasAdapter {
 
     public static async execute(code: string): Promise<string> {
         let promise: Promise<string> = new Promise((resolve, reject) => {
-            if (FirnasAdapter._isInitialized == false) {
+            if (FirnasAdapter._isInitialized === false) {
                 reject("Uninitialized");
             }
 
