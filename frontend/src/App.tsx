@@ -17,7 +17,7 @@ export const App = () => {
 
   const initialize = async () => {
     await FirnasAdapter.initialize();
-    const params = new URLSearchParams(window.location.search)
+    const params = new URLSearchParams(window.location.search);
     const codeParam: string | null = params.get('code');
     if (codeParam) {
       console.warn(codeParam);
@@ -33,7 +33,7 @@ export const App = () => {
   const handleRun = async () => {
     try {
       let result = await FirnasAdapter.execute(code);
-      setOutput(result);
+      setOutput(result.join("\n"));
     } catch (e) {
       console.error(e);
     }

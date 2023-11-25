@@ -26,14 +26,19 @@ export class FirnasAdapter {
         return promise;
     }
 
-    public static async execute(code: string): Promise<string> {
-        let promise: Promise<string> = new Promise((resolve, reject) => {
+    public static async execute(code: string): Promise<string[]> {
+        let promise: Promise<string[]> = new Promise((resolve, reject) => {
             if (FirnasAdapter._isInitialized === false) {
                 reject("Uninitialized");
             }
 
-            compile(code, (result: string) => { resolve(result); });
+            let results: string[] = [];
+
+            compile(code, (res: string) => { results.push(res) }, () => { }, () => {
+                resolve(results);
+            });
         });
+
         return promise;
     }
 }
