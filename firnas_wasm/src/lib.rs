@@ -3,6 +3,11 @@ use firnas_vm::stdlib::io::StdIO;
 use firnas_vm::virtual_machine;
 use wasm_bindgen::prelude::*;
 
+extern crate wee_alloc;
+
+#[global_allocator]
+static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+
 struct WasmStdIO {
     pub on_print: Box<dyn Fn(String) -> ()>,
 }

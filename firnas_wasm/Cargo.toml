@@ -12,8 +12,15 @@ firnas_compiler = { version = "*", git = "https://github.com/firnas-lang/firnas"
 firnas_ext = { version = "*", git = "https://github.com/firnas-lang/firnas", default-features = false }
 firnas_vm = { version = "*", git = "https://github.com/firnas-lang/firnas", default-features = false }
 js-sys = "0.3.65"
+wee_alloc = "0.4.5"
 
 [features]
 default = ["ar"]
 en = ["firnas_vm/en", "firnas_compiler/en"]
 ar = ["firnas_vm/ar", "firnas_compiler/ar"]
+
+[profile.release]
+lto = true
+# 'z' is more aggresize in size optimizaiton than 's'
+# try both and measure what suit us.
+opt-level = 'z'
