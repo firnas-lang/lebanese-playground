@@ -4633,8 +4633,10 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-"firnas_wasm@file:../firnas_wasm/pkg":
+firnas_wasm@*:
   version "0.1.0"
+  resolved "https://registry.yarnpkg.com/firnas_wasm/-/firnas_wasm-0.1.0.tgz#8751e7af4b39d212735360d2edde629b2530a13b"
+  integrity sha512-OJYPUlM1x0wrF7QgjwfGEdwqBLmUH2moBHaBVibAH5+0c82dG/HGKgfjxj4CineoMPZzGNn42mKNuCMwzT1fMg==
 
 flat-cache@^3.0.4:
   version "3.1.1"
