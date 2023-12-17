@@ -42,10 +42,14 @@ export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
 
             <div className="px-1" />
 
-            <div className="group pl-0 pr-1 flex flex-row border border-firnas-500 items-center rounded-xl hover:border-firnas-500 hover:bg-firnas-500">
-                <FiShare2 className="px-0.5 fill-firnas-500 stroke-firnas-500 group-hover:fill-white group-hover:stroke-white" />
-                <p className="text-firnas-500 px-2 text-s group-hover:text-white">شارك</p>
-            </div>
+            <button onClick={() => {
+                onShare();
+            }}>
+                <div className="group pl-0 pr-1 flex flex-row border border-firnas-500 items-center rounded-xl hover:border-firnas-500 hover:bg-firnas-500">
+                    <FiShare2 className="px-0.5 fill-firnas-500 stroke-firnas-500 group-hover:fill-white group-hover:stroke-white" />
+                    <p className="text-firnas-500 px-2 text-s group-hover:text-white">شارك</p>
+                </div>
+            </button>
 
             <div className="px-1" />
 

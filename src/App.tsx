@@ -4,9 +4,9 @@ import CodeMirror from '@uiw/react-codemirror';
 import { OutputWindow } from './components/OutputWindow';
 import { Toolbar } from './components/Toolbar';
 import { Divider } from './components/Divider';
-import { FirnasAdapter } from './services/firnasAdapter';
-import { b64Encode } from './services/encoDeco';
 import { Logo } from './components/Logo';
+import { FirnasAdapter } from './services/firnasAdapter';
+import { b64Encode, b64Decode } from './services/encoDeco';
 
 export const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -17,12 +17,11 @@ export const App = () => {
 
   const initialize = async () => {
     await FirnasAdapter.initialize();
-    // const params = new URLSearchParams(window.location.search);
-    // const codeParam: string | null = params.get('code');
-    // if (codeParam) {
-    //   console.warn(codeParam);
-    //   setCode(b64Decode(codeParam));
-    // }
+    const params = new URLSearchParams(window.location.search);
+    const codeParam: string | null = params.get('code');
+    if (codeParam) {
+      setCode(b64Decode(codeParam));
+    }
     setLoading(false);
   }
 
@@ -39,9 +38,10 @@ export const App = () => {
     }
   }
 
-  const handleEncoding = () => {
+  const handleEncoding = async () => {
     let encodedCode = b64Encode(code);
-    console.log(encodedCode);
+    let url = `${window.location.hostname}?code=${encodedCode}`;
+    return await navigator.clipboard.writeText(url);
   }
 
   if (isLoading) {
@@ -64,7 +64,9 @@ export const App = () => {
           handleEditorChange(newCode);
         }}
       />
+
       <Divider />
+
       <div className="flex flex-col pt-4">
         <div className="w-full border-4 border-gray-200">
           <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
