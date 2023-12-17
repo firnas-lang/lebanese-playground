@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
+import CodeMirror from '@uiw/react-codemirror';
 
-import { CodeEditor } from './components/CodeEditorWindow';
 import { OutputWindow } from './components/OutputWindow';
 import { Toolbar } from './components/Toolbar';
-import { Title } from './components/Title';
 import { Divider } from './components/Divider';
 import { FirnasAdapter } from './services/firnasAdapter';
-import { b64Encode, b64Decode } from './services/encoDeco';
+import { b64Encode } from './services/encoDeco';
 
 export const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -17,12 +16,12 @@ export const App = () => {
 
   const initialize = async () => {
     await FirnasAdapter.initialize();
-    const params = new URLSearchParams(window.location.search);
-    const codeParam: string | null = params.get('code');
-    if (codeParam) {
-      console.warn(codeParam);
-      setCode(b64Decode(codeParam));
-    }
+    // const params = new URLSearchParams(window.location.search);
+    // const codeParam: string | null = params.get('code');
+    // if (codeParam) {
+    //   console.warn(codeParam);
+    //   setCode(b64Decode(codeParam));
+    // }
     setLoading(false);
   }
 
@@ -49,19 +48,24 @@ export const App = () => {
   }
 
   return (
-    <div className="px-10">
-      <Title />
+    <div className="px-10 min-h-screen">
       <Toolbar
         onRun={handleRun}
         onShare={handleEncoding}
+        onDropdownChange={(newCode) => {
+          handleEditorChange(newCode);
+        }}
       />
       <Divider />
       <div className="flex flex-col pt-4">
         <div className="w-full border-4 border-gray-200">
-          <CodeEditor
-            code={code}
-            onChange={handleEditorChange}
-          />
+          <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
+            <CodeMirror
+              value={code}
+              height="50vh"
+              onChange={handleEditorChange}
+            />
+          </div>
         </div>
 
         <OutputWindow output={output} />

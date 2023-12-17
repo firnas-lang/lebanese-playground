@@ -1,48 +1,74 @@
-import { ReactNode } from 'react';
-import { FiPlay } from 'react-icons/fi'
+import { FiPlay, FiShare2 } from 'react-icons/fi'
+import { Title } from './Title';
+import { Logo } from './Logo';
 
 interface ToolbarProps {
     onRun: Function,
     onShare: Function,
+    onDropdownChange: (code: string) => void,
 }
 
-export const Toolbar = ({ onRun }: ToolbarProps) => {
+const codeMap: any = {
+    "examples": "",
+    "function": `دالة فيبوناتشي(س) {
+    لو(س < ٢) رد س؛
+    رد فيبوناتشي(س − ٢) + فيبوناتشي(س − ١)؛
+}
+
+اطبع_سطر(فيبوناتشي(١١))؛
+`,
+    "classes": ""
+}
+
+export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
     return (
-        <div className="flex flex-row items-center">
-            <div className="px-4">
-                <ToolbarButton onClick={onRun} tooltip={'تشغيل'}>
-                    <FiPlay className="fill-green-700 stroke-none" />
-                </ToolbarButton>
+        <div className="flex flex-row items-center py-2">
+            <Logo />
+
+            <div className="px-1" />
+
+            <Title />
+
+            <div className="px-1" />
+
+            <button onClick={() => {
+                onRun()
+            }}>
+                <div className="pl-0 pr-0.5 flex flex-row border border-firnas-500 bg-firnas-500 items-center rounded-xl hover:border-firnas-700 hover:bg-firnas-700">
+                    <FiPlay className="px-0.5 fill-white stroke-none" />
+                    <p className="text-white px-2 text-xs">تشغيل</p>
+                </div>
+            </button>
+
+            <div className="px-1" />
+
+            <div className="group pl-0 pr-1 flex flex-row border border-firnas-500 items-center rounded-xl hover:border-firnas-500 hover:bg-firnas-500">
+                <FiShare2 className="px-0.5 fill-firnas-500 stroke-firnas-500 group-hover:fill-white group-hover:stroke-white" />
+                <p className="text-firnas-500 px-2 text-xs group-hover:text-white">شارك</p>
             </div>
 
-            {/* <ToolbarButton onClick={onShare} tooltip={'شارك'}>
-                <FiShare2 />
-            </ToolbarButton> */}
+            <div className="px-1" />
+
+            <select
+                onChange={(e) => { const code = codeMap[e.target.value]; onDropdownChange(code); }}
+                className="
+                    p-0
+                    flex
+                    flex-row
+                    border
+                    border-firnas-500
+                    items-center
+                    rounded-xl
+                    text-firnas-500
+                    text-xs
+                    hover:bg-firnas-500
+                    hover:text-white
+                "
+            >
+                <option value="examples">أمثلة - Examples</option>
+                <option value="function">دالة - Functions</option>
+                <option value="classes">أصناف - Classes</option>
+            </select>
         </div>
     );
 }
-
-interface ToolbarButtonProps {
-    onClick: Function,
-    tooltip: string,
-    children: ReactNode
-}
-
-const ToolbarButton: React.FC<ToolbarButtonProps> = ({ onClick, children, tooltip }) => {
-    return (
-        <>
-            <button
-                data-tooltip-target="tooltip-default"
-                type="button"
-                onClick={() => { onClick() }}
-                className="group relative inline-block duration-300"
-            >
-                <span className="absolute hidden group-hover:flex translate-x-1/4 -translate-y-full px-2 py-1 bg-gray-700 rounded-lg text-center text-white text-sm">
-                    {tooltip}
-                </span>
-                {children}
-            </button>
-        </>
-    );
-}
-

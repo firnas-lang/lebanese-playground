@@ -4,7 +4,14 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'firnas': {
+          500: '#d79f00',
+          700: '#bb8900'
+        }
+      },
+    },
   },
   plugins: [],
 }
