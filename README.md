@@ -6,7 +6,7 @@ The playground runs a WebAssembly that wraps the [Firnas compiler and runtime](h
 
 ## Status
 
-[!Netlify Status](https://app.netlify.com/sites/firnas-playground/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/378f89c4-fe30-4375-95bc-8ba38b1bf23e/deploy-status)](https://app.netlify.com/sites/firnas-playground/deploys)
 
 ## Technologies
 
