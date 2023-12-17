@@ -11,7 +11,7 @@ interface ToolbarProps {
 const codeMap: any = {
     "examples": "",
     "function": `دالة فيبوناتشي(س) {
-    لو(س < ٢) رد س؛
+    اذا_كان(س < ٢) رد س؛
     رد فيبوناتشي(س − ٢) + فيبوناتشي(س − ١)؛
 }
 
@@ -23,7 +23,7 @@ const codeMap: any = {
 export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
     return (
         <div className="flex flex-row items-center py-2">
-            <Logo width={24} />
+            <Logo width={32} />
 
             <div className="px-1" />
 
@@ -36,7 +36,7 @@ export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
             }}>
                 <div className="pl-0 pr-0.5 flex flex-row border border-firnas-500 bg-firnas-500 items-center rounded-xl hover:border-firnas-700 hover:bg-firnas-700">
                     <FiPlay className="px-0.5 fill-white stroke-none" />
-                    <p className="text-white px-2 text-xs">تشغيل</p>
+                    <p className="text-white px-2 text-s">تشغيل</p>
                 </div>
             </button>
 
@@ -44,7 +44,7 @@ export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
 
             <div className="group pl-0 pr-1 flex flex-row border border-firnas-500 items-center rounded-xl hover:border-firnas-500 hover:bg-firnas-500">
                 <FiShare2 className="px-0.5 fill-firnas-500 stroke-firnas-500 group-hover:fill-white group-hover:stroke-white" />
-                <p className="text-firnas-500 px-2 text-xs group-hover:text-white">شارك</p>
+                <p className="text-firnas-500 px-2 text-s group-hover:text-white">شارك</p>
             </div>
 
             <div className="px-1" />
@@ -53,6 +53,7 @@ export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
                 onChange={(e) => { const code = codeMap[e.target.value]; onDropdownChange(code); }}
                 className="
                     p-0
+                    px-1
                     flex
                     flex-row
                     border
@@ -60,7 +61,7 @@ export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
                     items-center
                     rounded-xl
                     text-firnas-500
-                    text-xs
+                    text-s
                     hover:bg-firnas-500
                     hover:text-white
                 "

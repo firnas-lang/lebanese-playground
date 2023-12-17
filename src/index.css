@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+h1, h2, h3, h4, h5, h6, p, select, option {
     font-family: 'Lateef';
-}
-
-pre, .cm-gutters, .cm-line, .cm-matchingBracket {
-    font-family: 'Kawkab Mono';
-    font-size: small;
 }

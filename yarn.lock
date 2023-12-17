@@ -4766,10 +4766,10 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-firnas_wasm@*:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/firnas_wasm/-/firnas_wasm-0.1.0.tgz#8751e7af4b39d212735360d2edde629b2530a13b"
-  integrity sha512-OJYPUlM1x0wrF7QgjwfGEdwqBLmUH2moBHaBVibAH5+0c82dG/HGKgfjxj4CineoMPZzGNn42mKNuCMwzT1fMg==
+firnas_wasm@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/firnas_wasm/-/firnas_wasm-0.1.2.tgz#2e9348b59a19a7c644d4f3990d38f105865f1280"
+  integrity sha512-RggWxM7L7mCfm5zxkyTV+WCew1aOln9KamP5y4N8rO7ipB/3609Kcp/zgVXpSy+ME/VnQKVooofcgrAWju/i0A==
 
 flat-cache@^3.0.4:
   version "3.1.1"
