@@ -6,6 +6,7 @@ import { Toolbar } from './components/Toolbar';
 import { Divider } from './components/Divider';
 import { FirnasAdapter } from './services/firnasAdapter';
 import { b64Encode } from './services/encoDeco';
+import { Logo } from './components/Logo';
 
 export const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -44,7 +45,14 @@ export const App = () => {
   }
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex justify-center items-center w-screen h-screen">
+        <div>
+          <Logo width={64} />
+          <p className='text-center'>جاري التحميل...</p>
+        </div>
+      </div>
+    );
   }
 
   return (

@@ -23,7 +23,7 @@ const codeMap: any = {
 export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
     return (
         <div className="flex flex-row items-center py-2">
-            <Logo />
+            <Logo width={24} />
 
             <div className="px-1" />
 
