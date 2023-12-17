@@ -5,3 +5,8 @@
 * {
     font-family: 'Lateef';
 }
+
+pre, .cm-gutters, .cm-line, .cm-matchingBracket {
+    font-family: 'Kawkab Mono';
+    font-size: small;
+}

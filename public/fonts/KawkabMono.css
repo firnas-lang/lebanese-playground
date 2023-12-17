@@ -1,0 +1,26 @@
+@font-face {
+    font-family:"Kawkab Mono";
+    font-weight: 200;
+    src: url("./KawkabMono-Light.eot");
+    src: url("./KawkabMono-Light.eot") format("eot"),
+        url("./KawkabMono-Light.woff") format("woff"),
+        url("./KawkabMono-Light.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family:"Kawkab Mono";
+    font-weight: normal;
+    src: url("./KawkabMono-Regular.eot");
+    src: url("./KawkabMono-Regular.eot") format("eot"),
+        url("./KawkabMono-Regular.woff") format("woff"),
+        url("./KawkabMono-Regular.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family:"Kawkab Mono";
+    font-weight: bold;
+    src: url("./KawkabMono-Bold.eot");
+    src: url("./KawkabMono-Bold.eot") format("eot"),
+        url("./KawkabMono-Bold.woff") format("woff"),
+        url("./KawkabMono-Bold.otf") format("opentype");
+  }
