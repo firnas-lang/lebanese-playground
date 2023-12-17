@@ -20,7 +20,7 @@ export const App = () => {
 
   const initialize = async () => {
     ReactGA.initialize('G-80HS9TD81H');
-    ReactGA.pageview(location.pathname);
+    ReactGA.pageview(window.location.pathname);
 
     await FirnasAdapter.initialize();
     const params = new URLSearchParams(window.location.search);
