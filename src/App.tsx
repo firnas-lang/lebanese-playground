@@ -1,6 +1,7 @@
+import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
-import 'react-toastify/dist/ReactToastify.css';
+import ReactGA from 'react-ga';
 
 import { OutputWindow } from './components/OutputWindow';
 import { Toolbar } from './components/Toolbar';
@@ -18,6 +19,9 @@ export const App = () => {
   useEffect(() => { initialize(); }, []);
 
   const initialize = async () => {
+    ReactGA.initialize('G-80HS9TD81H');
+    ReactGA.pageview(location.pathname);
+
     await FirnasAdapter.initialize();
     const params = new URLSearchParams(window.location.search);
     const codeParam: string | null = params.get('code');
@@ -34,6 +38,7 @@ export const App = () => {
   const handleRun = async () => {
     try {
       let result = await FirnasAdapter.execute(code);
+      ReactGA.event({ category: 'Action', action: 'Run' });
       setOutput(result.join("\n"));
     } catch (e) {
       console.error(e);
@@ -43,6 +48,7 @@ export const App = () => {
   const handleShare = async () => {
     let encodedCode = b64Encode(code);
     let url = `${window.location.hostname}?code=${encodedCode}`;
+    ReactGA.event({ category: 'Action', action: 'Share' });
     toast.info('تم نسخ الرابط', {
       position: "top-center",
       autoClose: 2000,
