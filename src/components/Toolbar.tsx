@@ -9,7 +9,13 @@ interface ToolbarProps {
 }
 
 const codeMap: any = {
-    "examples": "",
+    "examples": ``,
+    "comments": `\\\\ يتم تغاضي عن التعليقات
+\\\\ التعليق هو مجرداثنين من الشرطة المائلة للأمام
+\\\\ اطبع_سطر("لن انفذ")؛
+
+اطبع_سطر("مرحبا يا عالم!")؛
+`,
     "function": `دالة فيبوناتشي(س) {
     اذا_كان(س < ٢) رد س؛
     رد فيبوناتشي(س − ٢) + فيبوناتشي(س − ١)؛
@@ -17,9 +23,11 @@ const codeMap: any = {
 
 اطبع_سطر(فيبوناتشي(١١))؛
 `,
-    "classes": `صنف كعكة_محلاة {
-اطبخ() {
-    اطبع_سطر("ضعها في المقلاة")؛
+    "classes": `\\\\ الصنف الاساسي
+
+صنف كعكة_محلاة {
+    اطبخ() {
+        اطبع_سطر("ضعها في المقلاة")؛
         هذا.انهي("الرشات")؛
     }
 
@@ -27,6 +35,12 @@ const codeMap: any = {
         اطبع_سطر("انهي ب" + المكونات)؛
     }
 }
+
+
+
+
+
+\\\\ صنف_كرولر يرث من كعكة_محلاة
 
 صنف صنف_كرولر < كعكة_محلاة {
     انهي(المكونات) {
@@ -90,6 +104,7 @@ export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
                 "
             >
                 <option value="examples">أمثلة - Examples</option>
+                <option value="comments">التعليقات - Comments</option>
                 <option value="function">دالة - Functions</option>
                 <option value="classes">أصناف - Classes</option>
             </select>
