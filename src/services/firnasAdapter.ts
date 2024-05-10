@@ -1,4 +1,4 @@
-import init, { compile } from 'firnas_wasm';
+import init, { compile } from 'firnas_lb_wasm';
 
 export class FirnasAdapter {
     private static _isInitialized: boolean = false;

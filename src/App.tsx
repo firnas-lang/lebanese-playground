@@ -49,7 +49,7 @@ export const App = () => {
     let encodedCode = b64Encode(code);
     let url = `${window.location.hostname}?code=${encodedCode}`;
     ReactGA.event({ category: 'Action', action: 'Share' });
-    toast.info('تم نسخ الرابط', {
+    toast.info('Sayyavto lal link, tekram', {
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,
@@ -67,7 +67,7 @@ export const App = () => {
       <div className="flex justify-center items-center w-screen h-screen">
         <div>
           <Logo width={64} />
-          <p className='text-center'>جاري التحميل...</p>
+          <p className='text-center'>Nterlak shway khayye</p>
         </div>
       </div>
     );

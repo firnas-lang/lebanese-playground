@@ -10,46 +10,40 @@ interface ToolbarProps {
 
 const codeMap: any = {
     "examples": ``,
-    "comments": `\\\\ يتم تغاضي عن التعليقات
-\\\\ التعليق هو مجرداثنين من الشرطة المائلة للأمام
-\\\\ اطبع_سطر("لن انفذ")؛
+    "comments": `// Hon btektob te3le2atak
+// Firnas ha ynayyemla w ma ha ya3mella compile
 
-اطبع_سطر("مرحبا يا عالم!")؛
+kteble3andak("Hi, kifak? ca va?");
 `,
-    "function": `دالة فيبوناتشي(س) {
-    اذا_كان(س < ٢) رد س؛
-    رد فيبوناتشي(س − ٢) + فيبوناتشي(س − ١)؛
+    "function": `wazife fibo(n) {
+    iza (n < 2) rajje3 n;
+    rajje3 fibo(n - 2) + fibo(n - 1);
 }
 
-اطبع_سطر(فيبوناتشي(١١))؛
+kteble3andak(fibo(20));
 `,
-    "classes": `\\\\ الصنف الاساسي
-
-صنف كعكة_محلاة {
-    اطبخ() {
-        اطبع_سطر("ضعها في المقلاة")؛
-        هذا.انهي("الرشات")؛
-    }
-
-    انهي(المكونات) {
-        اطبع_سطر("انهي ب" + المكونات)؛
+    "classes": `// hayda l she l asesi
+she Hayawen {
+    kol() {
+        kteble3andak("L hayawen 3am yekol");
     }
 }
 
+// hon l kalb byourat mnel hayawen sefato
+she Kalb < Hayawen {
+    kol() {
+        bayye.kol();
+        kteble3andak("3am yekol akel kleb");
+    }
 
-
-
-
-\\\\ صنف_كرولر يرث من كعكة_محلاة
-
-صنف صنف_كرولر < كعكة_محلاة {
-    انهي(المكونات) {
-        اساس.انهي("تثليج")؛
+    aawe() {
+        kteble3andak("aaw aaw");
     }
 }
 
-كعكة_محلاة().اطبخ()؛
-صنف_كرولر().اطبخ()؛
+e3teber kalb = Kalb();
+kalb.kol();
+kalb.aawe();
 `
 }
 
@@ -69,7 +63,7 @@ export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
             }}>
                 <div className="pl-0 pr-0.5 flex flex-row border border-firnas-500 bg-firnas-500 items-center rounded-xl hover:border-firnas-700 hover:bg-firnas-700">
                     <FiPlay className="px-0.5 fill-white stroke-none" />
-                    <p className="text-white px-2 text-s">تشغيل</p>
+                    <p className="text-white px-2 text-s">Sha88el</p>
                 </div>
             </button>
 
@@ -80,7 +74,7 @@ export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
             }}>
                 <div className="group pl-0 pr-1 flex flex-row border border-firnas-500 items-center rounded-xl hover:border-firnas-500 hover:bg-firnas-500">
                     <FiShare2 className="px-0.5 fill-firnas-500 stroke-firnas-500 group-hover:fill-white group-hover:stroke-white" />
-                    <p className="text-firnas-500 px-2 text-s group-hover:text-white">شارك</p>
+                    <p className="text-firnas-500 px-2 text-s group-hover:text-white">Share fel kheir</p>
                 </div>
             </button>
 
@@ -103,10 +97,10 @@ export const Toolbar = ({ onRun, onShare, onDropdownChange }: ToolbarProps) => {
                     hover:text-white
                 "
             >
-                <option value="examples">أمثلة - Examples</option>
-                <option value="comments">التعليقات - Comments</option>
-                <option value="function">دالة - Functions</option>
-                <option value="classes">أصناف - Classes</option>
+                <option value="examples">Examples</option>
+                <option value="comments">Comments</option>
+                <option value="function">Functions</option>
+                <option value="classes">Classes</option>
             </select>
         </div>
     );
